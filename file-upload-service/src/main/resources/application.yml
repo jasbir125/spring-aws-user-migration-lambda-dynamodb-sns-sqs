@@ -1,0 +1,22 @@
+
+# limit size of received files
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+# log everything
+logging:
+  level:
+    root=debug:
+
+aws:
+  credentials:
+    access-key: test_access_key
+    secret-key: test_secret_access_key
+  s3:
+    endpoint: http://s3.localhost.localstack.cloud:4566/
+  region: eu-west-1
+

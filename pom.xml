@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.7</version>
+        <relativePath/> <!-- lookup parent from com.singh.repository -->
+    </parent>
+    <groupId>com.singh</groupId>
+    <artifactId>springboot-aws-localstack-dynamodb-lambda-sns-sqs</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <name>Springboot AWS Lambda User Migration</name>
+    <description>Springboot AWS Lambda User Migration</description>
+    <properties>
+        <java.version>21</java.version>
+        <amazon-awssdk.version>2.36.3</amazon-awssdk.version>
+        <spring-cloud-aws.version>3.4.0</spring-cloud-aws.version>
+        <spring-cloud.version>2025.0.0</spring-cloud.version>
+        <aws-lambda-java-core.version>1.4.0</aws-lambda-java-core.version>
+        <aws-lambda-java-events.version>3.16.1</aws-lambda-java-events.version>
+        <spring-boot-thin-layout.version>1.0.31.RELEASE</spring-boot-thin-layout.version>
+        <springdoc-openapi.version>2.8.13</springdoc-openapi.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!-- To choose the AWS SDK version -->
+            <dependency>
+                <groupId>software.amazon.awssdk</groupId>
+                <artifactId>bom</artifactId>
+                <version>${amazon-awssdk.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.awspring.cloud</groupId>
+                <artifactId>spring-cloud-aws-dependencies</artifactId>
+                <version>${spring-cloud-aws.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <modules>
+        <module>lambda-s3-ingest</module>
+        <module>lambda-transform</module>
+        <module>lambda-dynamo-writer</module>
+        <module>lambda-sns-dispatcher</module>
+        <module>file-upload-service</module>
+    </modules>
+</project>

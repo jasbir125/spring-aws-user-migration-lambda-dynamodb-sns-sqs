@@ -1,0 +1,8 @@
+/tmp/
+.idea/
+.DS_Store
+lambda-transform/target/
+file-upload-service/target/
+lambda-dynamo-writer/target/
+lambda-sns-dispatcher/target/
+lambda-s3-ingest/target/

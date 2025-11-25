@@ -1,0 +1,21 @@
+{
+  "Records": [
+    {
+      "eventVersion": "2.1",
+      "eventSource": "aws:s3",
+      "awsRegion": "us-east-1",
+      "eventTime": "2025-11-20T22:22:23.123Z",
+      "eventName": "ObjectCreated:Put",
+      "s3": {
+        "bucket": {
+          "name": "user-migration-input-bucket"
+        },
+        "object": {
+          "key": "users/user-data.csv",
+          "size": 123,
+          "eTag": "abcdef123456"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+jar_lambda-s3-ingest        = "../lambda-s3-ingest/target/lambda-s3-ingest-java21-aws.jar"
+jar_lambda-sns-dispatcher   = "../lambda-sns-dispatcher/target/lambda-sns-dispatcher-java21-aws.jar"
+jar_lambda-transform        = "../lambda-transform/target/lambda-transform-java21-aws.jar"
+jar_lambda-dynamo-writer    = "../lambda-dynamo-writer/target/lambda-dynamo-writer-java21-aws.jar"
+aws_region                  = "eu-west-1"
+
