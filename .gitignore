@@ -6,3 +6,7 @@ file-upload-service/target/
 lambda-dynamo-writer/target/
 lambda-sns-dispatcher/target/
 lambda-s3-ingest/target/
+/infra-terraform/.terraform/
+/infra-terraform/.terraform.lock.hcl
+/infra-terraform/terraform.tfstate
+/infra-terraform/terraform.tfstate.backup

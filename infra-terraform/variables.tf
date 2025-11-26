@@ -22,3 +22,9 @@ variable "aws_region" {
   type        = string
   default     = "eu-west-1"
 }
+
+variable "spring_profiles_active" {
+  description = "Spring profiles active"
+  type        = string
+  default     = "local"
+}
