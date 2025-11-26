@@ -11,7 +11,7 @@
           "name": "user-migration-input-bucket"
         },
         "object": {
-          "key": "users/user-data.csv",
+          "key": "users/uploaded-test.csv",
           "size": 123,
           "eTag": "abcdef123456"
         }
