@@ -2,5 +2,5 @@ jar_lambda-s3-ingest        = "../lambda-s3-ingest/target/lambda-s3-ingest-java2
 jar_lambda-sns-dispatcher   = "../lambda-sns-dispatcher/target/lambda-sns-dispatcher-java21-aws.jar"
 jar_lambda-transform        = "../lambda-transform/target/lambda-transform-java21-aws.jar"
 jar_lambda-dynamo-writer    = "../lambda-dynamo-writer/target/lambda-dynamo-writer-java21-aws.jar"
-aws_region                  = "eu-west-1"
-
+aws_region                  = "us-east-1"
+spring_profiles_active      = "local"

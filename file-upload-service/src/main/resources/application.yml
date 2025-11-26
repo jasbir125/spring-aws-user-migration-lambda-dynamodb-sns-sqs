@@ -18,5 +18,5 @@ aws:
     secret-key: test_secret_access_key
   s3:
     endpoint: http://s3.localhost.localstack.cloud:4566/
-  region: eu-west-1
+  region: us-east-1
 

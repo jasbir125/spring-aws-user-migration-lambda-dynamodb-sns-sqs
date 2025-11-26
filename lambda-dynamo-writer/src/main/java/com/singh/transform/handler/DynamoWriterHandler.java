@@ -35,9 +35,6 @@ public class DynamoWriterHandler implements Function<SNSEvent, String> {
             log.warn("Received SNS event with no records. Nothing to persist.");
             return "No SNS records to process";
         }
-
-        log.info("AWS Region set to: {}", System.getenv("AWS_REGION"));
-
         String tableName = tableNameResolver.resolve(UserMigrationRecord.class);
         log.info("Resolved DynamoDB table name for UserMigrationRecord = {}", tableName);
 

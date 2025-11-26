@@ -9,7 +9,7 @@ resource "aws_s3_bucket" "lambda_bucket" {
 
 resource "aws_s3_bucket" "migration_input_bucket" {
   bucket        = "user-migration-input-bucket"
-  force_destroy = false
+  force_destroy = true
 }
 
 # DynamoDB Table with Streams enabled
@@ -92,7 +92,18 @@ resource "aws_iam_role_policy" "lambda_custom_policy" {
         Effect = "Allow",
         Action = ["logs:CreateLogGroup","logs:CreateLogStream","logs:PutLogEvents"],
         Resource = "arn:aws:logs:*:*:*"
-      }
+      },
+      # Required permissions for DynamoDB Streams
+      {
+        Effect = "Allow",
+        Action = [
+          "dynamodb:GetRecords",
+          "dynamodb:GetShardIterator",
+          "dynamodb:DescribeStream",
+          "dynamodb:ListStreams"
+        ]
+        Resource = aws_dynamodb_table.user_table.stream_arn
+      },
     ]
   })
 }
@@ -105,6 +116,7 @@ locals {
       jar     = var.jar_lambda-s3-ingest
       env     = {
         SNS_INGEST_TO_TRANSFORM_TOPIC_ARN = aws_sns_topic.ingest_to_transform.arn
+        SPRING_PROFILES_ACTIVE = var.spring_profiles_active
       }
     }
     user-migration-transform = {
@@ -112,6 +124,7 @@ locals {
       jar     = var.jar_lambda-transform
       env     = {
         SNS_TRANSFORM_TO_DYNAMO_TOPIC_ARN = aws_sns_topic.transform_to_dynamo.arn
+        SPRING_PROFILES_ACTIVE = var.spring_profiles_active
       }
     }
     user-migration-dynamo-writer = {
@@ -119,6 +132,7 @@ locals {
       jar     = var.jar_lambda-dynamo-writer
       env     = {
         DYNAMO_TABLE_NAME = aws_dynamodb_table.user_table.name
+        SPRING_PROFILES_ACTIVE = var.spring_profiles_active
       }
     }
     user-migration-sns-dispatcher = {
@@ -126,6 +140,7 @@ locals {
       jar     = var.jar_lambda-sns-dispatcher
       env     = {
         SNS_USER_MIGRATION_FANOUT_TOPIC_ARN = aws_sns_topic.user_migration_fanout_topic.arn
+        SPRING_PROFILES_ACTIVE = var.spring_profiles_active
       }
     }
   }

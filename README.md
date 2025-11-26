@@ -117,7 +117,7 @@ jar_lambda-s3-ingest      = "../lambda-s3-ingest/target/lambda-s3-ingest-java21-
 jar_lambda-transform      = "../lambda-transform/target/lambda-transform-java21-aws.jar"
 jar_lambda-dynamo-writer  = "../lambda-dynamo-writer/target/lambda-dynamo-writer-java21-aws.jar"
 jar_lambda-sns-dispatcher = "../lambda-sns-dispatcher/target/lambda-sns-dispatcher-java21-aws.jar"
-aws_region                = "eu-west-1"
+aws_region                = "us-east-1"
 ```
 
 ### Application properties
@@ -201,5 +201,7 @@ mvn clean
 - [Terraform AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 
 ---
+
+![img.png](img.png)
 
 Maintained by **Jasbir Singh**. Contributions welcome—open an issue or PR with improvements. 

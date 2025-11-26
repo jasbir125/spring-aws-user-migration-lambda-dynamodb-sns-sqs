@@ -20,5 +20,11 @@ variable "jar_lambda-dynamo-writer" {
 variable "aws_region" {
   description = "AWS region for deployment"
   type        = string
-  default     = "eu-west-1"
+  default     = "us-east-1"
+}
+
+variable "spring_profiles_active" {
+  description = "Spring profiles active"
+  type        = string
+  default     = "local"
 }
